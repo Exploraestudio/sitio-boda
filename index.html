@@ -47,6 +47,11 @@
     footer { padding: 30px 20px 50px; font-size: 13px; color: #8a7f74; border-top: 1px solid #e6dfd5; max-width: 520px; margin: 0 auto; }
     footer a { color: #8a7f74; }
   </style>
+      .cuenta { max-width: 520px; margin: 0 auto; padding: 30px 20px; border-top: 1px solid #e6dfd5; border-bottom: 1px solid #e6dfd5; }
+    .cuenta-nums { display: flex; justify-content: center; gap: 14px; }
+    .cuenta-nums div { min-width: 64px; }
+    .cuenta-nums strong { display: block; font-size: 34px; font-weight: normal; }
+    .cuenta-nums span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #8a7f74; }
 </head>
 <body>
 
@@ -56,6 +61,15 @@
     <h1>Marcela & José</h1>
     <p class="fecha">Sábado 14 de noviembre de 2026</p>
   </header>
+    <div class="cuenta" id="cuenta">
+    <h2>Faltan</h2>
+    <div class="cuenta-nums">
+      <div><strong id="dias">--</strong><span>días</span></div>
+      <div><strong id="horas">--</strong><span>horas</span></div>
+      <div><strong id="minutos">--</strong><span>min</span></div>
+      <div><strong id="segundos">--</strong><span>seg</span></div>
+    </div>
+  </div>
 
   <section class="primera">
     <h2>Ceremonia</h2>
@@ -90,4 +104,20 @@
   </footer>
 
 </body>
+    <script>
+    var meta = new Date("2026-11-14T18:00:00-06:00").getTime();
+    function actualizar() {
+      var resta = meta - Date.now();
+      if (resta <= 0) {
+        document.getElementById("cuenta").innerHTML = "<h2>¡Llegó el gran día!</h2>";
+        return;
+      }
+      document.getElementById("dias").textContent = Math.floor(resta / 86400000);
+      document.getElementById("horas").textContent = Math.floor(resta / 3600000) % 24;
+      document.getElementById("minutos").textContent = Math.floor(resta / 60000) % 60;
+      document.getElementById("segundos").textContent = Math.floor(resta / 1000) % 60;
+    }
+    actualizar();
+    setInterval(actualizar, 1000);
+  </script>
 </html>
