@@ -88,8 +88,70 @@
     <h2>Mesa de regalos</h2>
     <p>Tu compañía es nuestro mejor regalo. Si deseas tener un detalle con nosotros, aquí está nuestra mesa.</p>
     <a class="boton" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51957162" target="_blank" rel="noopener">Ver mesa de regalos</a>
-  </section>
+  </section> 
+  
+  <!-- PROTOTIPO: datos inventados (teléfono y taquerías). Reemplazar antes de compartir -->
+  <section class="regreso">
+    <style>
+      .regreso .sub { font-size: 17px; color: #66798F; margin: 0 0 22px; }
+      .regreso .fila { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px; }
+      .regreso h3 { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #8A6A2F; font-weight: 600; margin: 30px 0 12px; }
+      .tel { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+      .tel-num { font-size: 28px; font-weight: 500; letter-spacing: 1px; }
+      .btn-copiar { background: none; font-family: inherit; cursor: pointer; padding: 10px 20px; border: 1px solid #1F2B47; color: #1F2B47; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; }
+      .btn-copiar:hover { background: #1F2B47; color: #ECEAE5; }
+      .tacos { list-style: none; margin: 0; padding: 0; text-align: left; }
+      .tacos li { padding: 14px 0; border-top: 1px solid #cfcbc2; }
+      .tacos li:first-child { border-top: none; }
+      .tacos strong { font-size: 21px; font-weight: 600; display: block; }
+      .tacos span { font-size: 16px; color: #66798F; }
+      .tacos a { color: #8A6A2F; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+    </style>
 
+    <h2>De regreso a casa</h2>
+    <p class="sub">Después de bailar, llega con calma.</p>
+
+    <div class="fila">
+      <a class="boton" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location" target="_blank" rel="noopener">Uber</a>
+      <a class="boton" href="https://web.didiglobal.com/mx/" target="_blank" rel="noopener">DiDi</a>
+    </div>
+
+    <h3>Taxi de confianza</h3>
+    <div class="tel">
+      <span class="tel-num" id="tel-taxi">55 1234 5678</span>
+      <button class="btn-copiar" id="btn-copiar" type="button">Copiar</button>
+    </div>
+
+    <h3>Antes de dormir, tacos</h3>
+    <ul class="tacos">
+      <li>
+        <strong>Tacos La Esquina del Centro</strong>
+        <span>Al pastor y suadero · 5 min del MIDE</span><br>
+        <a href="https://www.google.com/maps/search/?api=1&query=Tacos+La+Esquina+del+Centro+Centro+Hist%C3%B3rico+CDMX" target="_blank" rel="noopener">Ver en el mapa</a>
+      </li>
+      <li>
+        <strong>Taquería Don Ejemplo</strong>
+        <span>Tacos de canasta y guisados · 8 min</span><br>
+        <a href="https://www.google.com/maps/search/?api=1&query=Taquer%C3%ADa+Don+Ejemplo+Centro+Hist%C3%B3rico+CDMX" target="_blank" rel="noopener">Ver en el mapa</a>
+      </li>
+      <li>
+        <strong>El Trompo de Madero</strong>
+        <span>Trompo y gringas · 10 min</span><br>
+        <a href="https://www.google.com/maps/search/?api=1&query=El+Trompo+de+Madero+Centro+Hist%C3%B3rico+CDMX" target="_blank" rel="noopener">Ver en el mapa</a>
+      </li>
+    </ul>
+
+    <script>
+      document.getElementById("btn-copiar").addEventListener("click", function () {
+        var btn = this;
+        var num = document.getElementById("tel-taxi").textContent;
+        function listo() { btn.textContent = "¡Copiado!"; setTimeout(function () { btn.textContent = "Copiar"; }, 2000); }
+        if (navigator.clipboard) { navigator.clipboard.writeText(num).then(listo); }
+        else { var t = document.createElement("textarea"); t.value = num; document.body.appendChild(t); t.select(); document.execCommand("copy"); document.body.removeChild(t); listo(); }
+      });
+    </script>
+  </section>
+  
   <footer>
     Sitio hecho por <strong>Explora Estudio</strong><br>
     <a href="mailto:omar@exploraestudio.com">omar@exploraestudio.com</a>
