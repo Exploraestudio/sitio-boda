@@ -96,10 +96,11 @@
       .regreso .sub { font-size: 17px; color: #66798F; margin: 0 0 22px; }
       .regreso .fila { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px; }
       .regreso h3 { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #8A6A2F; font-weight: 600; margin: 30px 0 12px; }
-      .tel { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
-      .tel-num { font-size: 28px; font-weight: 500; letter-spacing: 1px; }
-      .btn-copiar { background: none; font-family: inherit; cursor: pointer; padding: 10px 20px; border: 1px solid #1F2B47; color: #1F2B47; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; }
-      .btn-copiar:hover { background: #1F2B47; color: #ECEAE5; }
+      .tel { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+      .tel-txt { font-size: 17px; color: #66798F; margin: 0; }
+      .tel-num { font-size: 22px; font-weight: 500; letter-spacing: 1px; }
+      .btn-llamar { display: inline-block; padding: 6px 16px; border: 1px solid #1F2B47; color: #1F2B47; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; }
+      .btn-llamar:hover { background: #1F2B47; color: #ECEAE5; }
       .tacos { list-style: none; margin: 0; padding: 0; text-align: left; }
       .tacos li { padding: 14px 0; border-top: 1px solid #cfcbc2; }
       .tacos li:first-child { border-top: none; }
@@ -118,8 +119,9 @@
 
     <h3>Taxi de confianza</h3>
     <div class="tel">
-      <span class="tel-num" id="tel-taxi">55 1234 5678</span>
-      <button class="btn-copiar" id="btn-copiar" type="button">Copiar</button>
+      <p class="tel-txt">Pide tu taxi por teléfono y espéralo en la puerta de Tacuba 17.</p>
+      <span class="tel-num">55 5522 1692</span>
+      <a class="btn-llamar" href="tel:+525555221692">Llamar</a>
     </div>
 
     <h3>Antes de dormir, tacos</h3>
@@ -141,15 +143,6 @@
       </li>
     </ul>
 
-    <script>
-      document.getElementById("btn-copiar").addEventListener("click", function () {
-        var btn = this;
-        var num = document.getElementById("tel-taxi").textContent;
-        function listo() { btn.textContent = "¡Copiado!"; setTimeout(function () { btn.textContent = "Copiar"; }, 2000); }
-        if (navigator.clipboard) { navigator.clipboard.writeText(num).then(listo); }
-        else { var t = document.createElement("textarea"); t.value = num; document.body.appendChild(t); t.select(); document.execCommand("copy"); document.body.removeChild(t); listo(); }
-      });
-    </script>
   </section>
   
   <footer>
