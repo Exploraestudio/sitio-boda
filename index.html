@@ -5,63 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marcela & José · 14 de noviembre de 2026</title>
   <meta name="description" content="Nos casamos el 14 de noviembre de 2026. Aquí encuentras la ceremonia, la recepción y la mesa de regalos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root { --azul: #1F2B47; --oro: #8A6A2F; --piedra: #ECEAE5; --acero: #66798F; --linea: #cfcbc2; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #faf7f2;
-      color: #3a3430;
-      font-family: Georgia, "Times New Roman", serif;
-      text-align: center;
-      line-height: 1.6;
-    }
+    body { margin: 0; background: var(--piedra); color: var(--azul); font-family: "Cormorant Garamond", Georgia, serif; font-size: 19px; text-align: center; line-height: 1.55; }
     .portada { padding: 40px 20px 10px; }
-    .portada img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      border-radius: 6px;
-      display: block;
-      margin: 0 auto 28px;
-    }
-    .kicker { letter-spacing: 3px; text-transform: uppercase; font-size: 13px; color: #8a7f74; margin: 0; }
-    h1 { font-size: 40px; font-weight: normal; margin: 10px 0 6px; line-height: 1.15; }
-    .fecha { font-size: 20px; margin: 0; }
-    section { max-width: 520px; margin: 0 auto; padding: 36px 20px; border-top: 1px solid #e6dfd5; }
-    section.primera { border-top: none; }
-    h2 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #8a7f74; font-weight: normal; margin: 0 0 14px; }
-    .hora { font-size: 28px; margin: 0; }
-    .lugar { font-size: 20px; margin: 6px 0 2px; }
-    .dir { font-size: 15px; color: #6b625a; margin: 0 0 18px; }
-    .boton {
-      display: inline-block;
-      padding: 12px 26px;
-      border: 1px solid #3a3430;
-      color: #3a3430;
-      text-decoration: none;
-      font-size: 15px;
-      letter-spacing: 1px;
-      border-radius: 2px;
-    }
-    .boton:hover { background: #3a3430; color: #faf7f2; }
-    footer { padding: 30px 20px 50px; font-size: 13px; color: #8a7f74; border-top: 1px solid #e6dfd5; max-width: 520px; margin: 0 auto; }
-    footer a { color: #8a7f74; } .cuenta { max-width: 520px; margin: 0 auto; padding: 30px 20px; border-top: 1px solid #e6dfd5; border-bottom: 1px solid #e6dfd5; }
+    .portada img { width: 100%; max-width: 420px; height: auto; border-radius: 2px; display: block; margin: 0 auto 28px; }
+    .kicker { letter-spacing: 5px; text-transform: uppercase; font-size: 14px; color: var(--oro); margin: 0; }
+    h1 { font-size: 46px; font-weight: 500; margin: 10px 0 8px; line-height: 1.1; }
+    .fecha { font-size: 20px; letter-spacing: 6px; text-transform: uppercase; margin: 0; }
+    .cuenta { max-width: 520px; margin: 28px auto 0; padding: 26px 20px; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
     .cuenta-nums { display: flex; justify-content: center; gap: 14px; }
     .cuenta-nums div { min-width: 64px; }
-    .cuenta-nums strong { display: block; font-size: 34px; font-weight: normal; }
-    .cuenta-nums span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #8a7f74; }
+    .cuenta-nums strong { display: block; font-size: 38px; font-weight: 500; }
+    .cuenta-nums span { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--oro); }
+    h2 { font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: var(--oro); font-weight: 600; margin: 0 0 14px; }
+    section { max-width: 520px; margin: 0 auto; padding: 38px 20px; border-top: 1px solid var(--linea); }
+    section.aviso-sec { border-top: none; padding-bottom: 6px; }
+    .aviso { border: 1px solid var(--oro); padding: 18px 20px; font-size: 18px; }
+    .aviso strong { color: var(--oro); letter-spacing: 2px; text-transform: uppercase; font-size: 14px; display: block; margin-bottom: 6px; }
+    .dibujo { width: 100%; max-width: 440px; height: auto; display: block; margin: 0 auto 22px; }
+    .hora { font-size: 34px; font-weight: 500; margin: 0; }
+    .lugar { font-size: 23px; margin: 6px 0 2px; }
+    .dir { font-size: 17px; color: var(--acero); margin: 0 0 20px; }
+    .boton { display: inline-block; padding: 12px 28px; border: 1px solid var(--azul); color: var(--azul); text-decoration: none; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; }
+    .boton:hover { background: var(--azul); color: var(--piedra); }
+    footer { padding: 30px 20px 50px; font-size: 15px; color: var(--acero); border-top: 1px solid var(--linea); max-width: 520px; margin: 0 auto; }
+    footer a { color: var(--acero); }
   </style>
-      
 </head>
 <body>
-
   <header class="portada">
     <img src="foto-portada.webp" alt="Marcela y José">
-    <p class="kicker">Se acerca el gran día</p>
+    <p class="kicker">Nos casamos</p>
     <h1>Marcela & José</h1>
-    <p class="fecha">Sábado 14 de noviembre de 2026</p>
+    <p class="fecha">14 | Noviembre | 2026</p>
   </header>
-    <div class="cuenta" id="cuenta">
+
+  <div class="cuenta" id="cuenta">
     <h2>Faltan</h2>
     <div class="cuenta-nums">
       <div><strong id="dias">--</strong><span>días</span></div>
@@ -71,7 +55,15 @@
     </div>
   </div>
 
-  <section class="primera">
+  <section class="aviso-sec">
+    <div class="aviso">
+      <strong>Actualización importante</strong>
+      La ceremonia será a las 18:00 hrs en el Templo de Nuestra Señora de Lourdes. Esta información reemplaza la de la invitación impresa.
+    </div>
+  </section>
+
+  <section>
+    <img class="dibujo" src="iglesia-silueta.webp" alt="Templo de Nuestra Señora de Lourdes">
     <h2>Ceremonia</h2>
     <p class="hora">18:00 hrs</p>
     <p class="lugar">Templo de Nuestra Señora de Lourdes</p>
@@ -80,6 +72,7 @@
   </section>
 
   <section>
+    <img class="dibujo" src="mide-silueta.webp" alt="MIDE, Museo Interactivo de Economía">
     <h2>Recepción</h2>
     <p class="hora">19:00 hrs</p>
     <p class="lugar">MIDE, Museo Interactivo de Economía</p>
@@ -89,13 +82,13 @@
 
   <section>
     <h2>Etiqueta</h2>
-    <p class="hora">Formal</p>
+    <p class="lugar">Formal</p>
   </section>
 
   <section>
     <h2>Mesa de regalos</h2>
-    <p class="dir">Tu compañía es nuestro mejor regalo. Si deseas tener un detalle con nosotros, aquí está nuestra mesa.</p>
-    <a class="boton" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51957162" target="_blank" rel="noopener">Ver mesa de regalos en Liverpool</a>
+    <p>Tu compañía es nuestro mejor regalo. Si deseas tener un detalle con nosotros, aquí está nuestra mesa.</p>
+    <a class="boton" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51957162" target="_blank" rel="noopener">Ver mesa de regalos</a>
   </section>
 
   <footer>
@@ -103,8 +96,7 @@
     <a href="mailto:omar@exploraestudio.com">omar@exploraestudio.com</a>
   </footer>
 
-</body>
-    <script>
+  <script>
     var meta = new Date("2026-11-14T18:00:00-06:00").getTime();
     function actualizar() {
       var resta = meta - Date.now();
@@ -120,4 +112,5 @@
     actualizar();
     setInterval(actualizar, 1000);
   </script>
+</body>
 </html>
