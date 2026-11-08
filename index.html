@@ -208,6 +208,14 @@
     </div>
 
     <p class="calzado">Te recomendamos usar calzado cómodo: puede que camines unas cuadras.</p>
+    <script>
+      // Vista previa solo con #demo-llegar al final del enlace. QUITAR este script al publicar la sección.
+      if (location.hash === "#demo-llegar") {
+        document.getElementById("llegar").hidden = false;
+        var enl = document.querySelector(".enlace-llegar");
+        if (enl) enl.hidden = false;
+      }
+    </script>
   </section>
 
   <!-- PENDIENTE: confirmar con una llamada que la base de taxis atiende de madrugada, y revisar horarios de las taquerías -->
