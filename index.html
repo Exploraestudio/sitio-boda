@@ -38,6 +38,18 @@
     .boton:hover { background: var(--azul); color: var(--piedra); }
     footer { padding: 30px 20px 50px; font-size: 15px; color: var(--acero); border-top: 1px solid var(--linea); max-width: 520px; margin: 0 auto; }
     footer a { color: var(--acero); }
+    .mesas .sub { font-size: 17px; color: var(--acero); margin: 0 0 18px; }
+    .mesas form { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .mesas input { width: 100%; max-width: 340px; padding: 12px 14px; border: 1px solid var(--azul); border-radius: 0; background: transparent; font-family: inherit; font-size: 19px; color: var(--azul); text-align: center; }
+    .mesas input:focus { outline: 2px solid var(--oro); outline-offset: 2px; }
+    .mesas button.boton { background: none; font-family: inherit; cursor: pointer; }
+    .mesas button.boton:hover { background: var(--azul); color: var(--piedra); }
+    .mesa-res { margin-top: 24px; min-height: 24px; color: var(--acero); font-size: 17px; }
+    .mesa-item { padding: 14px 0; border-top: 1px solid var(--linea); }
+    .mesa-item:first-child { border-top: none; }
+    .mesa-item .nom { display: block; font-size: 19px; color: var(--azul); }
+    .mesa-item .etq { display: block; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--oro); margin-top: 6px; }
+    .mesa-item .num { display: block; font-size: 52px; font-weight: 500; line-height: 1.1; color: var(--azul); }
   </style>
 </head>
 <body>
@@ -94,8 +106,74 @@
     <h2>Mesa de regalos</h2>
     <p>Tu compañía es nuestro mejor regalo. Si deseas tener un detalle con nosotros, aquí está nuestra mesa.</p>
     <a class="boton" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51957162" target="_blank" rel="noopener">Ver mesa de regalos</a>
-  </section> 
-  
+  </section>
+
+  <!-- BUSCADOR DE MESAS: oculto hasta que ENDPOINT tenga la URL del Apps Script.
+       Para ver la versión de prueba (nombres falsos) abrir el sitio con #demo-mesas al final del enlace. -->
+  <section class="mesas" id="mesas" hidden>
+    <h2>Encuentra tu mesa</h2>
+    <p class="sub">Escribe tu nombre y apellido.</p>
+    <form id="form-mesa" autocomplete="off">
+      <input id="nombre-mesa" type="text" placeholder="Nombre y apellido" maxlength="60" aria-label="Tu nombre y apellido" required>
+      <button class="boton" type="submit">Buscar</button>
+    </form>
+    <div class="mesa-res" id="resultado-mesa" aria-live="polite"></div>
+    <script>
+      (function () {
+        var ENDPOINT = ""; // PENDIENTE: URL del Apps Script publicado como aplicación web
+        var DEMO = location.hash === "#demo-mesas";
+        var DEMO_DATOS = [
+          { nombre: "Ana Prueba", mesa: "1" },
+          { nombre: "Luis Ejemplo", mesa: "2" },
+          { nombre: "Luis Ejemplo Ruiz", mesa: "4" }
+        ];
+        if (!ENDPOINT && !DEMO) return; // sin conexión, la sección sigue oculta
+        var sec = document.getElementById("mesas");
+        var form = document.getElementById("form-mesa");
+        var input = document.getElementById("nombre-mesa");
+        var res = document.getElementById("resultado-mesa");
+        sec.hidden = false;
+
+        function limpiar(t) {
+          return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, " ").trim();
+        }
+        function buscarDemo(q) {
+          var palabras = limpiar(q).split(" ");
+          return DEMO_DATOS.filter(function (d) {
+            var n = limpiar(d.nombre);
+            return palabras.every(function (p) { return n.indexOf(p) !== -1; });
+          });
+        }
+        function pintar(lista) {
+          res.textContent = "";
+          if (!lista || !lista.length) {
+            res.textContent = "No encontramos ese nombre. Prueba con nombre y apellido como aparecen en tu invitación, o pregunta en la entrada.";
+            return;
+          }
+          lista.forEach(function (d) {
+            var item = document.createElement("div"); item.className = "mesa-item";
+            var nom = document.createElement("span"); nom.className = "nom"; nom.textContent = d.nombre;
+            var etq = document.createElement("span"); etq.className = "etq"; etq.textContent = "Mesa";
+            var num = document.createElement("span"); num.className = "num"; num.textContent = d.mesa;
+            item.appendChild(nom); item.appendChild(etq); item.appendChild(num);
+            res.appendChild(item);
+          });
+        }
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var q = input.value.trim();
+          if (limpiar(q).length < 3) { res.textContent = "Escribe al menos tu nombre y apellido."; return; }
+          res.textContent = "Buscando...";
+          if (DEMO && !ENDPOINT) { pintar(buscarDemo(q)); return; }
+          fetch(ENDPOINT + "?q=" + encodeURIComponent(q))
+            .then(function (r) { return r.json(); })
+            .then(function (d) { pintar(d.resultados); })
+            .catch(function () { res.textContent = "No pudimos buscar en este momento. Intenta de nuevo o pregunta en la entrada."; });
+        });
+      })();
+    </script>
+  </section>
+
   <!-- PENDIENTE: confirmar con una llamada que la base de taxis atiende de madrugada, y revisar horarios de las taquerías -->
   <section class="regreso">
     <style>
