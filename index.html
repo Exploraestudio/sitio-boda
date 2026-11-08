@@ -47,6 +47,7 @@
     .boton:hover { background: var(--azul); color: var(--piedra); }
     footer { padding: 30px 20px 50px; font-size: 15px; color: var(--acero); border-top: 1px solid var(--linea); max-width: 520px; margin: 0 auto; }
     footer a { color: var(--acero); }
+    .camara .pasos { font-size: 15px; color: var(--acero); margin: 0 0 20px; }
     .mesas .sub { font-size: 17px; color: var(--acero); margin: 0 0 18px; }
     .mesas form { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .mesas input { width: 100%; max-width: 340px; padding: 12px 14px; border: 1px solid var(--azul); border-radius: 0; background: transparent; font-family: inherit; font-size: 19px; color: var(--azul); text-align: center; }
@@ -118,6 +119,24 @@
     <h2>Mesa de regalos</h2>
     <p>Tu compañía es nuestro mejor regalo. Si deseas tener un detalle con nosotros, aquí está nuestra mesa.</p>
     <a class="boton" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51957162" target="_blank" rel="noopener">Ver mesa de regalos</a>
+  </section>
+
+  <!-- CÁMARA DESECHABLE (Lense): oculta hasta que LENSE_URL tenga el enlace del evento.
+       Vista previa con #demo-camara al final del enlace (el botón apunta a "#" en la demo). -->
+  <section class="camara" id="camara" hidden>
+    <h2>Cámara desechable</h2>
+    <p>Ayúdanos a guardar este día con tu mirada. Toma fotos y videos con nuestra cámara desechable digital: se abre desde tu celular, sin descargar nada y sin crear cuenta.</p>
+    <p class="pasos">1. Toca el botón &nbsp;·&nbsp; 2. Escribe tu nombre &nbsp;·&nbsp; 3. Toma tus fotos</p>
+    <a class="boton" id="btn-camara" href="#" target="_blank" rel="noopener">Abrir la cámara</a>
+    <script>
+      (function () {
+        var LENSE_URL = ""; // PENDIENTE: enlace del evento en Lense (lo manda Marcela)
+        var DEMO = location.hash === "#demo-camara";
+        if (!LENSE_URL && !DEMO) return;
+        if (LENSE_URL) document.getElementById("btn-camara").href = LENSE_URL;
+        document.getElementById("camara").hidden = false;
+      })();
+    </script>
   </section>
 
   <!-- BUSCADOR DE MESAS: oculto hasta que ENDPOINT tenga la URL del Apps Script.
