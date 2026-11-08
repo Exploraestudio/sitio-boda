@@ -31,6 +31,14 @@
     .aviso .nota { display: block; margin-top: 10px; font-size: 14px; font-style: italic; font-weight: 600; color: var(--oro); }
     .aviso .precaucion { display: block; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--linea); font-size: 15px; }
     .aviso .actualiza { display: block; margin-top: 10px; font-size: 14px; font-style: italic; font-weight: 600; color: var(--oro); }
+    .aviso .enlace-llegar { display: inline-block; margin-top: 12px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--azul); border-bottom: 1px solid var(--azul); text-decoration: none; }
+    .aviso .enlace-llegar[hidden] { display: none; }
+    .llegar .via { padding: 16px 0; border-top: 1px solid var(--linea); text-align: left; }
+    .llegar .via:first-of-type { border-top: none; }
+    .llegar .via h3 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: var(--oro); margin: 0 0 8px; font-weight: 600; }
+    .llegar .via p { margin: 0; font-size: 17px; }
+    .llegar .calzado { margin-top: 18px; font-size: 15px; font-style: italic; color: var(--acero); }
+    .llegar .fecha { font-size: 14px; color: var(--acero); margin: 0 0 14px; }
     .dibujo { width: 100%; max-width: 440px; height: auto; display: block; margin: 0 auto 22px; }
     .hora { font-size: 34px; font-weight: 500; margin: 0; }
     .lugar { font-size: 23px; margin: 6px 0 2px; }
@@ -78,6 +86,8 @@
       <span class="nota">Esta información reemplaza la de la invitación impresa.</span>
       <span class="precaucion"><strong>Precaución</strong>Ese día coincide con <b>El Buen Fin</b> y con un <b>concierto masivo en el Zócalo</b>, por lo que es posible que haya <b>cortes a la circulación</b>. Sal con tiempo y espera más tráfico y gente en el Centro.
         <span class="actualiza">Publicaremos aquí la información actualizada.</span></span>
+      <!-- INTERRUPTOR: al publicar "Cómo llegar el 14", quitar hidden de este enlace Y de <section id="llegar"> -->
+      <a class="enlace-llegar" href="#llegar" hidden>Ver cómo llegar el 14</a>
     </div>
   </section>
 
@@ -174,6 +184,30 @@
         });
       })();
     </script>
+  </section>
+
+  <!-- CÓMO LLEGAR EL 14: oculta. Los textos entre [CORCHETES] son pendientes por confirmar con el MIDE / planners.
+       No quitar hidden hasta reemplazar TODOS los corchetes (y quitar hidden del enlace en el aviso). -->
+  <section class="llegar" id="llegar" hidden>
+    <h2>Cómo llegar el 14</h2>
+    <p class="fecha">Información actualizada el [FECHA Y HORA].</p>
+
+    <div class="via">
+      <h3>En taxi o Uber</h3>
+      <p>Es posible que no puedas llegar hasta la puerta de Tacuba 17. Pide que te dejen en [PUNTO DE DESCENSO] y camina [CUÁNTO SE CAMINA] hasta el MIDE.</p>
+    </div>
+
+    <div class="via">
+      <h3>En Metro o Metrobús</h3>
+      <p>Es posible que la estación Zócalo/Tenochtitlan esté cerrada. Como alternativa, llega a Allende, Bellas Artes o Pino Suárez. [TRAYECTO A PIE DESDE LA ESTACIÓN RECOMENDADA]</p>
+    </div>
+
+    <div class="via">
+      <h3>En auto</h3>
+      <p>Recomendamos no venir en auto: estacionarse en el Centro será difícil ese día. [VALET / ESTACIONAMIENTO RECOMENDADO, SI APLICA]</p>
+    </div>
+
+    <p class="calzado">Te recomendamos usar calzado cómodo: puede que camines unas cuadras.</p>
   </section>
 
   <!-- PENDIENTE: confirmar con una llamada que la base de taxis atiende de madrugada, y revisar horarios de las taquerías -->
