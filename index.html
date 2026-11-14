@@ -39,6 +39,7 @@
     .llegar .via p { margin: 0; font-size: 17px; }
     .llegar .calzado { margin-top: 18px; font-size: 15px; font-style: italic; color: var(--acero); }
     .llegar .fecha { font-size: 14px; color: var(--acero); margin: 0 0 14px; }
+    .llegar .intro { font-size: 17px; margin: 0 0 8px; }
     .dibujo { width: 100%; max-width: 440px; height: auto; display: block; margin: 0 auto 22px; }
     .hora { font-size: 34px; font-weight: 500; margin: 0; }
     .lugar { font-size: 23px; margin: 6px 0 2px; }
@@ -85,10 +86,9 @@
       <strong>Actualización importante</strong>
       La ceremonia será a las <b>18:00 hrs</b> en el <b>Templo de Nuestra Señora de Lourdes</b>.
       <span class="nota">Esta información reemplaza la de la invitación impresa.</span>
-      <span class="precaucion"><strong>Precaución</strong>Ese día coincide con <b>El Buen Fin</b> y con un <b>concierto masivo en el Zócalo</b>, por lo que es posible que haya <b>cortes a la circulación</b>. Sal con tiempo y espera más tráfico y gente en el Centro.
+      <span class="precaucion"><strong>Precaución</strong>Ese día coincide con <b>El Buen Fin</b> y con un <b>concierto masivo en el Zócalo</b>, por lo que habrá <b>cierres viales</b>. Sal con tiempo y espera más tráfico y gente en el Centro.
         <span class="actualiza">Publicaremos aquí la información actualizada.</span></span>
-      <!-- INTERRUPTOR: al publicar "Cómo llegar el 14", quitar hidden de este enlace Y de <section id="llegar"> -->
-      <a class="enlace-llegar" href="#llegar" hidden>Ver cómo llegar el 14</a>
+      <a class="enlace-llegar" href="#llegar">Ver cómo llegar hoy</a>
     </div>
   </section>
 
@@ -205,36 +205,28 @@
     </script>
   </section>
 
-  <!-- CÓMO LLEGAR EL 14: oculta. Los textos entre [CORCHETES] son pendientes por confirmar con el MIDE / planners.
-       No quitar hidden hasta reemplazar TODOS los corchetes (y quitar hidden del enlace en el aviso). -->
-  <section class="llegar" id="llegar" hidden>
-    <h2>Cómo llegar el 14</h2>
-    <p class="fecha">Información actualizada el [FECHA Y HORA].</p>
+  <!-- CÓMO LLEGAR EL 14: publicada el 14-nov-2026 con datos de prensa (Infobae, Mexican Times); revisar si cambian. -->
+  <section class="llegar" id="llegar">
+    <h2>Cómo llegar hoy</h2>
+    <p class="fecha">Actualizado el sábado 14 de noviembre, 15:30 hrs.</p>
+    <p class="intro">El concierto gratuito en el Zócalo trae cierres viales y mucha gente al Centro. <b>La estación Zócalo/Tenochtitlan del Metro permanecerá cerrada.</b> Sal con tiempo.</p>
 
     <div class="via">
       <h3>En taxi o Uber</h3>
-      <p>Es posible que no puedas llegar hasta la puerta de Tacuba 17. Pide que te dejen en [PUNTO DE DESCENSO] y camina [CUÁNTO SE CAMINA] hasta el MIDE.</p>
+      <p>Es posible que los autos no lleguen hasta la puerta de Tacuba 17. Pide que te dejen sobre <b>Eje Central, frente a Bellas Artes</b>, y camina por la calle de Tacuba hasta el MIDE.</p>
     </div>
 
     <div class="via">
       <h3>En Metro o Metrobús</h3>
-      <p>Es posible que la estación Zócalo/Tenochtitlan esté cerrada. Como alternativa, llega a Allende, Bellas Artes o Pino Suárez. [TRAYECTO A PIE DESDE LA ESTACIÓN RECOMENDADA]</p>
+      <p>Llega a <b>Allende</b> (Línea 2), <b>Bellas Artes</b> (Líneas 2 y 8) o <b>San Juan de Letrán</b> (Línea 8) y camina hasta el MIDE. La Línea 4 del Metrobús también puede servir si sus estaciones del Centro están en servicio. Revisa el estado del Metro antes de salir.</p>
     </div>
 
     <div class="via">
       <h3>En auto</h3>
-      <p>Recomendamos no venir en auto: estacionarse en el Centro será difícil ese día. [VALET / ESTACIONAMIENTO RECOMENDADO, SI APLICA]</p>
+      <p>Recomendamos no venir en auto: habrá cierres viales y estacionarse en el Centro será muy difícil.</p>
     </div>
 
-    <p class="calzado">Te recomendamos usar calzado cómodo: puede que camines unas cuadras.</p>
-    <script>
-      // Vista previa solo con #demo-llegar al final del enlace. QUITAR este script al publicar la sección.
-      if (location.hash === "#demo-llegar") {
-        document.getElementById("llegar").hidden = false;
-        var enl = document.querySelector(".enlace-llegar");
-        if (enl) enl.hidden = false;
-      }
-    </script>
+    <p class="calzado">Te recomendamos usar calzado cómodo: puede que camines varias cuadras entre mucha gente.</p>
   </section>
 
   <!-- PENDIENTE: confirmar con una llamada que la base de taxis atiende de madrugada, y revisar horarios de las taquerías -->
