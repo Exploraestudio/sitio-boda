@@ -51,6 +51,8 @@
     .camara { border: 1px solid var(--oro); margin: 0 20px; padding: 28px 22px; background: rgba(138,106,47,0.07); }
     .camara .etiqueta { display: block; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--oro); margin: -4px 0 14px; }
     .camara .boton-camara { background: var(--azul); color: var(--piedra); padding: 14px 28px; font-size: 16px; }
+    .camara .qr-txt { font-size: 14px; color: var(--acero); margin: 22px 0 10px; }
+    .camara .qr { display: block; margin: 0 auto; width: 190px; height: 190px; max-width: 60%; height: auto; background: #fff; padding: 8px; }
     .camara .pasos { font-size: 15px; color: var(--acero); margin: 0 0 20px; }
     .mesas .sub { font-size: 17px; color: var(--acero); margin: 0 0 18px; }
     .mesas form { display: flex; flex-direction: column; align-items: center; gap: 12px; }
@@ -92,6 +94,8 @@
     <p><b>Ayúdanos a guardar este día con tu mirada.</b> Toma fotos con nuestra cámara desechable digital: se abre desde tu celular, sin descargar nada y sin crear cuenta.</p>
     <p class="pasos">1. Toca el botón &nbsp;·&nbsp; 2. Escribe tu nombre &nbsp;·&nbsp; 3. Toma tus fotos</p>
     <a class="boton boton-camara" id="btn-camara" href="#" target="_blank" rel="noopener">Abrir la cámara</a>
+    <p class="qr-txt">O escanea este código desde otro celular:</p>
+    <img class="qr" src="lense-qr.png" width="190" height="190" alt="Código QR para abrir la cámara desechable" loading="lazy">
     <script>
       (function () {
         var LENSE_URL = "https://lense.app/join-event/7f7e930f4130d5fb-d64f8705";
